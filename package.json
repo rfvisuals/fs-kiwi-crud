@@ -1,0 +1,29 @@
+{
+  "name": "fs-kiwi-crud",
+  "engines": {
+    "node": "v10.15.0"
+  },
+  "version": "1.0.0",
+  "description": "Node, Express, Mongoose",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfvisuals/fs-kiwi-crud.git"
+  },
+  "author": "Ron Fu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfvisuals/fs-kiwi-crud/issues"
+  },
+  "homepage": "https://github.com/rfvisuals/fs-kiwi-crud#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.6.7"
+  }
+}
