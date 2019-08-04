@@ -67,10 +67,10 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.get('/steaks', (req, res) => {
 	console.log(req.body)
 	//access db and look for steak data
-	Steak.find({}, (error, everySteak) => {
+	Steak.find({}, (error, newSteak) => {
 		//render this onto index page
 		res.render('index.ejs', {
-			steaks: everySteak
+			steaks: newSteak
 		});
 	});
 });
@@ -84,12 +84,29 @@ app.get('/steaks/new', (req, res) => {
 app.post('/steaks/', (req, res) => {
 	//takes data and populates db, appends
 	// to body
-		Steak.create(req.body, (error, newSteak) => {
+	
+    		Steak.create(req.body, (error, newSteak) => {
 			res.redirect('/steaks')
 		})
-	})
+console.log('from post route', req.body);
+});
 
 
+//EDIT ROUTE
+app.get('/steaks/:id', (req, res) => {
+	//get the steak id that was clicked from database
+	Steak.findById(req.params.id, (err, selectedSteak) => {
+		res.render('edit.ejs', {
+			steaks: selectedSteak
+		})
+	})	
+})
+//PUT ROUTE
+app.put('/steaks/:id', (req, res)=>{
+    Steak.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
+    res.redirect('/steaks');
+	});
+});
 
 //___________________
 //Listener

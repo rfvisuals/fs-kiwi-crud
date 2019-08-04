@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Edit Your Steak</h1>
+          <!--  NOTE: this form will post to the index of the steak array -->
+        <form action="/steaks/<%=steaks.id%>?_method=PUT" method="POST">
+          
+            Restaurant: <input type="text" name="restaurant" value="<%=steaks.restaurant%>"/><br/>
+            Cut: <input type="text" name="steakname" value="<%=steaks.steakname%>"/><br/>
+            Doneness: <input type="text" name="doneness" value="<%=steaks.doneness%>"/><br/>
+            Rating: <input type="text" name="rating" value="<%=steaks.rating%>"/><br/>
+            <br/>
+            <input type="submit" name="" value="Change Steak Info"/>
+        </form>
+    </body>
+</html>

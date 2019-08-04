@@ -10,6 +10,15 @@
       <h2>Add Steaks to Your List<h2>
         
         <a  href="steaks/new" method="GET"class="waves-effect waves-light btn">Add New Steak</a>
-      
+              <ul>
+      <% for(let i = 0; i < steaks.length; i++){ %>
+          <li>
+             <%= steaks[i].restaurant %>
+             <a href="/steaks/<%=steaks[i].id; %>"><%=steaks[i].steakname;%> </a> cooked <%=steaks[i].doneness; %>  is a <%=steaks[i].rating; %> out of 10.
+           
+
+          </li>
+      <% } %>
+  </ul>
     </body>
 </html>
