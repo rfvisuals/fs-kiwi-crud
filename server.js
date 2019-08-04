@@ -6,8 +6,10 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+
 // DATA 
 const Steak = require('./models/data.js');
+
 //___________________
 //Port
 //___________________
@@ -54,15 +56,38 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.render('index.ejs');
+//INDEX ROUTE
+// app.get('/steaks' , (req, res) => {
+//   res.render('index.ejs');
+// });
+
+
+// PUT ROUTE-RECEIVE DATA FROM OTHER PAGES AND SENDS 
+// TO INDEX
+app.get('/steaks', (req, res) => {
+	console.log(req.body)
+	//access db and look for steak data
+	Steak.find({}, (error, everySteak) => {
+		//render this onto index page
+		res.render('index.ejs', {
+			steaks: everySteak
+		});
+	});
 });
 
+//CREATE ROUTE - WHEN USER HITS PAGE THEY CAN ADD NEW CONTENT
+app.get('/steaks/new', (req, res) => {
+  res.render('new.ejs');
+})
 
-
-
-
-
+//POST ROUTE
+app.post('/steaks/', (req, res) => {
+	//takes data and populates db, appends
+	// to body
+		Steak.create(req.body, (error, newSteak) => {
+			res.redirect('/steaks')
+		})
+	})
 
 
 

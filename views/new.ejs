@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head.ejs %>
+    <!-- native css directory -->
+    <link rel="stylesheet" href="/css/app.css"> 
+  </head>
+    <body>
+    <h1>Steak List</h1>
+      <h2>Add Steaks to Your List<h2>
+    <form action="/steaks" method="POST">
+            Steak Type: <input type="text" name="steakname" /><br/>
+            Doneness: <input type="text" name="doneness" /><br/>
+            Color: <input type="number" name="rating" /><br/>
+            <input type="submit" name="" value="Add Steak"/>
+        </form>
+    </body>
+</html>
