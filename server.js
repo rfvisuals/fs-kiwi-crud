@@ -6,6 +6,8 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+// DATA 
+const Steak = require('./models/data.js');
 //___________________
 //Port
 //___________________
@@ -46,14 +48,24 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
+
+
 //___________________
 // Routes
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.render('index.ejs');
 });
-console.log('HEROKU WORKS')
+
+
+
+
+
+
+
+
+
 //___________________
 //Listener
 //___________________
