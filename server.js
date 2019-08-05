@@ -93,7 +93,7 @@ console.log('from post route', req.body);
 
 
 //EDIT ROUTE
-app.get('/steaks/:id', (req, res) => {
+app.get('/steaks/:id/edit', (req, res) => {
 	//get the steak id that was clicked from database
 	Steak.findById(req.params.id, (err, selectedSteak) => {
 		res.render('edit.ejs', {
@@ -101,12 +101,27 @@ app.get('/steaks/:id', (req, res) => {
 		})
 	})	
 })
+// SHOW ROUTE
+app.get('/steaks/:id', (req, res) => {
+  Steak.findById(req.params.id, (err, selectedSteak) => {
+      res.render('show.ejs', {
+        steaks:selectedSteak
+      })
+  });
+});
 //PUT ROUTE
 app.put('/steaks/:id', (req, res)=>{
     Steak.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
     res.redirect('/steaks');
 	});
 });
+
+//DELETE -
+app.delete('/steaks/:id', (req, res) => {
+  Steak.findByIdAndRemove(req.params.id, (error, deleteSteak) => {
+    res.redirect('/steaks')
+  })
+})
 
 //___________________
 //Listener
