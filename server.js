@@ -116,7 +116,7 @@ app.put('/steaks/:id', (req, res)=>{
 	});
 });
 
-//DELETE -
+//DELETE ROUTE
 app.delete('/steaks/:id', (req, res) => {
   Steak.findByIdAndRemove(req.params.id, (error, deleteSteak) => {
     res.redirect('/steaks')
