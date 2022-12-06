@@ -22,7 +22,7 @@
   "homepage": "https://github.com/rfvisuals/fs-kiwi-crud#readme",
   "dependencies": {
     "ejs": "^2.6.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.6.7"
   }
